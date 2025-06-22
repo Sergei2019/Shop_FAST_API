@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин продуктов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Продуктовый магазин</h1>
+    </header>
+    
+    <main>
+        <section id="products-list">
+            <h2>Все товары</h2>
+            <div class="filters">
+                <input type="text" id="search" placeholder="Поиск товаров...">
+                <button onclick="loadProducts()">Поиск</button>
+            </div>
+            <div id="products-container"></div>
+        </section>
+        
+        <section id="add-product-form">
+            <h2>Добавить новый товар</h2>
+            <form onsubmit="addProduct(event)">
+                <input type="text" id="name" placeholder="Название" required>
+                <input type="number" id="price" placeholder="Цена" step="0.01" required>
+                <input type="number" id="quantity" placeholder="Количество" required>
+                <textarea id="description" placeholder="Описание"></textarea>
+                <button type="submit">Добавить товар</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2023 Продуктовый магазин</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
