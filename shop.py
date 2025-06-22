@@ -1,16 +1,26 @@
-gitfrom fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-
-from .models import Product
-
+from auth import (
+    create_access_token, 
+    authenticate_user, 
+    get_current_user,
+    get_password_hash,
+    ACCESS_TOKEN_EXPIRE_MINUTES,
+    SECRET_KEY,
+    ALGORITHM
+)
+from models import UserCreate, UserLogin, Token, Product, User
+from datetime import timedelta
+import uuid
 
 app = FastAPI()
 
 
+# Разрешить доступ с фронтенд-сервера
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:5500"],  # Ваш фронтенд-адрес
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )

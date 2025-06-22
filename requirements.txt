@@ -33,3 +33,6 @@ ujson==5.9.0
 uvicorn==0.29.0
 watchfiles==0.21.0
 websockets==12.0
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
